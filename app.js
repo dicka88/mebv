@@ -11,9 +11,6 @@ var authRouter = require('./routes/auth');
 
 var mongodb = require('./config/database')
 
-// mongodb Connect
-mongodb.connect()
-
 var app = express();
 
 // view engine setup
