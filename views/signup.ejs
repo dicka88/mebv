@@ -1,0 +1,73 @@
+<%- include('partials/header') %>
+    <%- include('partials/nav') %>
+        <section class="container">
+            <div class="columns is-12">
+                <div class="column is-4"></div>
+                <div class="column is-4">
+                    <form action="/auth/signup" method="post">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input" name="name" type="text" placeholder="Your name">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Username</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="username" type="text" placeholder="Text input" value="">
+                                <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                                <span class="icon is-small is-right"></span>
+                            </div>
+                            <!-- <p class="help is-success">This username is available</p> -->
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="email" type="email" placeholder="Email input">
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                <!-- <span class="icon is-small is-right"><i class="fas fa-exclamation-triangle"></i></span> -->
+                            </div>
+                            <!-- <p class="help is-danger">This email is invalid</p> -->
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="password" type="password" placeholder="Password">
+                                <span class="icon is-small is-left"><i class="fas fa-password"></i></span>
+                                <!-- <span class="icon is-small is-right"><i class="fas fa-exclamation-triangle"></i></span> -->
+                            </div>
+                            <!-- <p class="help is-danger">This email is invalid</p> -->
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Repeat Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="repeatPassword" type="password" placeholder="Repeat password">
+                                <span class="icon is-small is-left"><i class="fas fa-password"></i></span>
+                                <!-- <span class="icon is-small is-right"><i class="fas fa-exclamation-triangle"></i></span> -->
+                            </div>
+                            <!-- <p class="help is-danger">This email is invalid</p> -->
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                <input type="checkbox" name="agree">I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <button type="submit" class="button is-link is-block">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="columm is-4"></div>
+            </div>
+        </section>
+        <%- include('partials/footer') %>
