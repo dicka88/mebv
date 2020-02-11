@@ -3,13 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mustacheEngine = require('mustache-express');
-var ejs = require('ejs');
+let session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 
-var mongodb = require('./config/database')
+require('ejs');
+require('./config/database')
 
 var app = express();
 
@@ -17,11 +17,19 @@ var app = express();
 // app.engine('html', mustacheEngine());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('view options', {
-    open: '{{',
-    close: '}}'
-});
 
+let sesscredential = {
+    key: 'iamverysecretkeybruh',
+    secret: 'Iamverysecretkeybruh',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: true,
+        maxAge: 600000 // 1days
+    }
+}
+
+app.use(session(sesscredential))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

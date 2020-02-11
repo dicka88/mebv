@@ -37,7 +37,7 @@ router.post('/signup', (req, res) => {
             password
         })
 
-        account.findOne({ username }, (err, result) => {
+        account.findOne({ $or: [{ username }, { email }] }).exec((err, result) => {
             if (result) {
                 res.redirect('/signup')
             } else {
@@ -58,7 +58,8 @@ router.post('/signin', (req, res) => {
     let account = mongoose.model('Accounts', accountSchema)
     account.findOne({ username, password }, (err, result) => {
         if (result) {
-            res.send('Login berhasil')
+            req.session.login = true
+            res.send('Login berhasil: Session tergenerated ' + req.session.cookie.maxAge)
             console.log("Login berhasil");
         } else {
             res.send("Login gagal")
